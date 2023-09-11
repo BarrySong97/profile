@@ -1,113 +1,78 @@
-import Image from 'next/image'
+import Image from "next/image";
+import TimeLine, { Timeline } from "./components/Timeline";
+import Avatar from "../assets/avatar.png";
+import "./page.css";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Barry Song's online Resume profile",
+  description: "Barry Song's resume profile",
+};
 
 export default function Home() {
+  const timeline: Timeline[] = [
+    {
+      title: "成都索贝数码科技股份有限公司",
+      startDate: "2022-04",
+      endDate: "2023-03",
+      position: "前端工程师",
+      link: "http://www.sobey.com/",
+      loc: "四川 成都",
+      description:
+        "作为行业的专业媒体技术领军企业、融合媒体建设主力和数字经济代表性企业",
+    },
+    {
+      title: "成都深瑞同华科技有限公司",
+      startDate: "2020-07",
+      loc: "四川 成都",
+      endDate: "2022-03",
+      link: "https://www.qcc.com/weblogin?back=%2Ffirm%2F4c9593959858b0a3c294ef70c245617c.html",
+      position: "前端工程师",
+      description:
+        "深瑞同华产品以强大的业务数据化共享平台及智能便捷的专业服务，打造电力服务行业领先的业务云平台生态系统",
+    },
+    {
+      title: "上海电机学院",
+      startDate: "2016-09",
+      endDate: "2020-06",
+      position: "软件工程",
+      description: "统招本科",
+      loc: "上海",
+      link: "https://www.sdju.edu.cn/",
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex flex-col lg:flex-row justify-center">
+      <article className="card lg:mr-16 mb-5 lg:mb-0 shadow-xl">
+        <div className="background bg-image">
+          <Image src={Avatar} alt="profile"  className="object-cover" />
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+        <div className="content">
+          <h2>Barry Song</h2>
+          <ul className="chips">
+            <li className="chip">React.js</li>
+            <li className="chip">nest.js</li>
+            <li className="chip">Flutter</li>
+          </ul>
+          <p>
+            我是Barry
+            Song，一个全栈工程师，当然在公司里还只是做过前端工程师，实际上我私下写的很多项目都是全栈。我喜欢高效率的工作，不喜欢加班。如果你正在找一个前端或者nodejs技术站的全栈工作人员，可以联系我
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <p>邮箱：524000659@qq.com</p>
+          <div className="action-buttons">
+            {/* <a href="#book-a-mentor" title="Book a lector">
+              Book a lector
+            </a> */}
+            <a
+              href="http://barrysong4real.cc/"
+              className="secondary"
+              title="Learn More"
+            >
+              个人博客
+            </a>
+          </div>
+        </div>
+      </article>
+      <TimeLine data={timeline} />
+    </div>
+  );
 }
